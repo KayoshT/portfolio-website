@@ -1,4 +1,15 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# My Portfolio Website
+
+Welcome to my portfolio website! This project showcases my works hosted on GitHub, built using modern web technologies to gain experience with various libraries.
+
+## Technologies Used
+
+- **[Next.js](https://nextjs.org/)**: A React framework for server-side rendering and generating static websites.
+- **[Tailwind CSS](https://tailwindcss.com/)**: A utility-first CSS framework for rapidly building custom designs.
+- **[tsParticles](https://particles.js.org/)**: A library to create particles animations, used via [react-tsparticles](https://github.com/matteobruni/tsparticles/tree/main/components/react).
+- **[react-lottie](https://github.com/chenqingspring/react-lottie)**: A library for rendering animations from Lottie files in React.
+
+This project was bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
 
