@@ -44,7 +44,7 @@ const Home = () => {
           <Nav />
           <Hero />
           <Roadmap />
-          <Contact />
+          <Projects />
         </main>
       </div>
     );
