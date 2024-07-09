@@ -4,37 +4,27 @@ import React, { useEffect, useState, useRef } from "react";
 import { roadmapData } from "../data/roadmapData";
 
 const Roadmap = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
   const [currItem, setCurrItem] = useState({});
-  const [imagePosition, setImagePosition] = useState(0);
-  const [fromTop, setFromTop] = useState(0);
   const [lineHeight, setLineHeight] = useState(0);
   const containerRef = useRef(null);
   const stickyRef = useRef(null);
-
+  const timelineRef = useRef(null);
   const handleScroll = () => {
     const scrollTop = window.scrollY || document.documentElement.scrollTop;
-    const itemHeight = window.innerHeight / 2;
-    const newIndex = Math.min(roadmapData.length - 1, scrollTop / itemHeight);
-    setCurrentIndex(newIndex);
-    setFromTop(scrollTop);
-    setCurrItem(roadmapData[Math.floor(newIndex)]);
-    setImagePosition((scrollTop / document.documentElement.scrollHeight) * 100);
-
-    // Get distance from top of container to sticky element
+    const timelineHeight = timelineRef.current.getBoundingClientRect();
     const containerTop = containerRef.current.getBoundingClientRect().top;
+    const containerHeight = containerRef.current.getBoundingClientRect().height;
     const stickyTop = stickyRef.current.getBoundingClientRect().top;
-    console.log("containertop is " + containerTop);
-    console.log("stickyTop is" + stickyTop);
-    const distanceFromContainerTop = stickyTop - containerTop;
-
-    // Calculate line height based on scroll position
-    const maxHeight =
-      document.documentElement.scrollHeight - window.innerHeight;
-    const newHeight = Math.min(
-      ((scrollTop - containerTop) / maxHeight) * 100,
-      100
+    console.log("scrollTop" + scrollTop);
+    console.log("timelineTop is" + timelineHeight.bottom);
+    console.log("timelineHeight us " + timelineHeight.height);
+    const newIndex = Math.floor(
+      ((timelineHeight.bottom - timelineHeight.height - containerHeight) /
+        timelineHeight.height) *
+        -roadmapData.length
     );
+    // console.log(Math.floor(newIndex));
+    setCurrItem(roadmapData[Math.floor(newIndex < 0 ? 0 : newIndex)]);
     setLineHeight(containerTop - stickyTop);
   };
 
@@ -44,20 +34,24 @@ const Roadmap = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+  const CurrentComponent = currItem.component || "div";
 
   return (
-    <div className="relative container mx-auto my-10 px-36">
-      {/* Blue bar positioned absolutely */}
+    <div className="relative container mx-auto my-10 px-36" ref={timelineRef}>
       <div className="flex relative">
         <div
           className="sticky top-1/3 self-start mx-8 flex-1"
           ref={containerRef}
         >
-          <img
-            src={currItem.image}
-            alt={currItem.title}
-            className="w-full h-72 rounded-lg"
-          />
+          {CurrentComponent !== "div" ? (
+            <CurrentComponent />
+          ) : (
+            <img
+              src={currItem.image}
+              alt={currItem.title}
+              className="w-full h-72 rounded-lg"
+            />
+          )}
         </div>
         <div
           className="sticky top-0 left-1/2 transform -translate-x-1/2 w-1 bg-blue-500"

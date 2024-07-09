@@ -10,7 +10,7 @@ import { useEffect, useMemo, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 import bubbles from "./data/water";
-
+import EscoComponent from "./components/EscoComponent";
 const Home = () => {
   const [init, setInit] = useState(false);
 
@@ -45,6 +45,7 @@ const Home = () => {
           <Hero />
           <Roadmap />
           <Projects />
+          <EscoComponent />
         </main>
       </div>
     );
