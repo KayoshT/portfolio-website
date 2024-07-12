@@ -6,10 +6,12 @@ import Hero from "./components/Hero";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Roadmap from "./components/Roadmap";
+import About from "./components/About";
 import { useEffect, useMemo, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 import bubbles from "./data/water";
+import Footer from "./components/Footer";
 import EscoComponent from "./components/EscoComponent";
 const Home = () => {
   const [init, setInit] = useState(false);
@@ -40,12 +42,13 @@ const Home = () => {
           options={bubbles}
           className="absolute inset-0 z-0"
         />
-        <main className="relative z-10 space-y-16">
+        <main className="relative z-10">
           <Nav />
           <Hero />
           <Roadmap />
-          <Projects />
-          <EscoComponent />
+          {/* <Projects /> */}
+          <About />
+          <Footer />
         </main>
       </div>
     );

@@ -12,12 +12,12 @@ const Roadmap = () => {
   const handleScroll = () => {
     const scrollTop = window.scrollY || document.documentElement.scrollTop;
     const timelineHeight = timelineRef.current.getBoundingClientRect();
-    const containerTop = containerRef.current.getBoundingClientRect().top;
     const containerHeight = containerRef.current.getBoundingClientRect().height;
+    const containerTop = containerRef.current.getBoundingClientRect().top;
     const stickyTop = stickyRef.current.getBoundingClientRect().top;
-    console.log("scrollTop" + scrollTop);
-    console.log("timelineTop is" + timelineHeight.bottom);
-    console.log("timelineHeight us " + timelineHeight.height);
+    // console.log("scrollTop" + scrollTop);
+    // console.log("timelineTop is" + timelineHeight.bottom);
+    // console.log("timelineHeight us " + timelineHeight.height);
     const newIndex = Math.floor(
       ((timelineHeight.bottom - timelineHeight.height - containerHeight) /
         timelineHeight.height) *
@@ -34,29 +34,32 @@ const Roadmap = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-  const CurrentComponent = currItem.component || "div";
-
+  const CurrentComponent = currItem?.component ? currItem.component : "div";
+  const timelineHeight = timelineRef.current?.getBoundingClientRect().height;
   return (
-    <div className="relative container mx-auto my-10 px-36" ref={timelineRef}>
-      <div className="flex relative">
-        <div
-          className="sticky top-1/3 self-start mx-8 flex-1"
-          ref={containerRef}
-        >
-          {CurrentComponent !== "div" ? (
-            <CurrentComponent />
-          ) : (
-            <img
-              src={currItem.image}
-              alt={currItem.title}
-              className="w-full h-72 rounded-lg"
-            />
-          )}
+    <section className="relative flex justify-center items-center xl:mx-72 lg:mx-48">
+      <div className="relative flex container my-10" ref={timelineRef}>
+        <div className="sticky top-1/3 self-start flex-1" ref={containerRef}>
+          <div className="mx-8 p-4">
+            {CurrentComponent !== "div" ? (
+              <CurrentComponent />
+            ) : (
+              <img
+                src={currItem?.image}
+                alt={currItem?.title}
+                className="w-full h-72 rounded-lg"
+              />
+            )}
+          </div>
         </div>
         <div
-          className="sticky top-0 left-1/2 transform -translate-x-1/2 w-1 bg-blue-500"
+          className="sticky top-0 left-1/2 w-1 bg-blue-500 z-20"
           style={{ height: `${lineHeight}px` }}
           ref={stickyRef}
+        ></div>
+        <div
+          className="absolute top-0 left-1/2  w-1 bg-gray-200 z-10"
+          style={{ height: `${timelineHeight}px` }}
         ></div>
         <div className="flex-1">
           {roadmapData.map((item, index) => (
@@ -75,7 +78,7 @@ const Roadmap = () => {
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
