@@ -2,24 +2,28 @@ import React from "react";
 
 const Nav = () => {
   return (
-    <nav className="p-4 flex items-center justify-center">
-      <ul className="flex space-x-20 text-xl font-medium">
-        <li>
-          <a href="#about" className="text-midnightgreen">
-            About
-          </a>
-        </li>
-        <li>
-          <a href="#projects" className="text-midnightgreen">
-            Projects
-          </a>
-        </li>
-        <li>
-          <a href="#contact" className="text-midnightgreen">
-            Contact
-          </a>
-        </li>
-      </ul>
+    <nav className="absolute p-4 flex items-center justify-center left-0 right-0 m-auto">
+      <div className="bg-white/30 p-5 rounded-3xl transpar">
+        <div className="flex space-x-10 text-xl font-medium h-10 ">
+          <div className="h-full">
+            <img className="h-full " src="./github.svg" alt="Github" />
+          </div>
+          <div className="h-full">
+            <img
+              className="h-full stroke-slate-700 fill-slate-700"
+              src="./linkedin.svg"
+              alt="divnkedIn"
+            />
+          </div>
+          <div className="h-full">
+            <img
+              className="h-full stroke-slate-700 fill-slate-700"
+              src="./email.svg"
+              alt="Email"
+            />
+          </div>
+        </div>
+      </div>
     </nav>
   );
 };

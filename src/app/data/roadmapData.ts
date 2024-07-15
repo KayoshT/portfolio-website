@@ -19,14 +19,14 @@ export const roadmapData = [
     link: "#",
     component: TutorKeepComponent,
   },
-  {
-    title: "Meal Recommendation App",
-    description:
-      "Because Cypress runs directly in the browser, you can debug failed tests using the in-browser developer tools you already know and love.",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZzHDbVL49ogGcSz6il6oYJkaYXbQvVwr1tw&s",
-    link: "#",
-  },
+  // {
+  //   title: "Meal Recommendation App",
+  //   description:
+  //     "Because Cypress runs directly in the browser, you can debug failed tests using the in-browser developer tools you already know and love.",
+  //   image:
+  //     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZzHDbVL49ogGcSz6il6oYJkaYXbQvVwr1tw&s",
+  //   link: "#",
+  // },
   {
     title: "Youtube Content Automation System",
     description:
