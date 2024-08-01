@@ -40,7 +40,7 @@ const config: Config = {
         floralwhite: "#FFFCFF",
         teagreen: "#D2EBCD",
         Mountbatten: "#97709D",
-        dullblue: "#D6E4E5",
+        dullblue: "#f5fcff",
       },
       backgroundImage: {
         "gradient-autumn": `

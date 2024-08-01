@@ -40,8 +40,8 @@ const bubbles: ISourceOptions = {
         type: "circle",
       },
       onHover: {
-        enable: false,
-        mode: {},
+        enable: true,
+        mode: "bounce",
         parallax: {
           enable: false,
           force: 2,
@@ -68,7 +68,7 @@ const bubbles: ISourceOptions = {
         speed: 1,
       },
       bounce: {
-        distance: 200,
+        distance: 100,
       },
       bubble: {
         distance: 200,
@@ -177,7 +177,7 @@ const bubbles: ISourceOptions = {
       },
     },
     color: {
-      value: "#D6E4E5",
+      value: "#cceaff",
       animation: {
         h: {
           count: 0,
