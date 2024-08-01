@@ -4,11 +4,11 @@ import React, { useEffect, useState, useRef } from "react";
 import { roadmapData } from "../data/roadmapData";
 import useScreenSize from "../hooks/useScreenSize";
 const Roadmap = () => {
-  const [currItem, setCurrItem] = useState({});
-  const [lineHeight, setLineHeight] = useState(0);
-  const containerRef = useRef(null);
-  const stickyRef = useRef(null);
-  const timelineRef = useRef(null);
+  const [currItem, setCurrItem] = useState<Record<string, any>>({});
+  const [lineHeight, setLineHeight] = useState<number>(0);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const stickyRef = useRef<HTMLDivElement>(null);
+  const timelineRef = useRef<HTMLDivElement>(null);
   const screenSize = useScreenSize();
   console.log(screenSize);
   const handleScroll = () => {
@@ -19,15 +19,20 @@ const Roadmap = () => {
     const containerTop = containerRef.current?.getBoundingClientRect().top;
     const stickyTop = stickyRef.current?.getBoundingClientRect().top;
 
-    const newIndex = Math.floor(
-      ((timelineHeight.bottom - timelineHeight.height - containerHeight) /
-        timelineHeight.height) *
-        -roadmapData.length
-    );
-    // console.log(Math.floor(newIndex));
-    setCurrItem(roadmapData[Math.floor(newIndex < 0 ? 0 : newIndex)]);
-    console.log(newIndex);
-    setLineHeight(containerTop - stickyTop);
+    if (timelineHeight && containerHeight && containerTop && stickyTop) {
+      const newIndex = Math.floor(
+        ((timelineHeight.bottom - timelineHeight.height - containerHeight) /
+          timelineHeight.height) *
+          -roadmapData.length
+      );
+
+      setCurrItem(roadmapData[Math.floor(newIndex < 0 ? 0 : newIndex)]);
+      console.log(newIndex);
+      setLineHeight(containerTop - stickyTop);
+    } else {
+      // Handle the case where timelineHeight is null
+      console.warn("timelineHeight is null");
+    }
   };
 
   useEffect(() => {

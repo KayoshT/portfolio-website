@@ -4,7 +4,7 @@ import {
   type ISourceOptions,
 } from "@tsparticles/engine";
 
-const bubbles: ISourceOptions = {
+const bubbles: any = {
   autoPlay: true,
   backgroundMask: {
     composite: "destination-out",
