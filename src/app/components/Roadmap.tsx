@@ -19,7 +19,12 @@ const Roadmap = () => {
     const containerTop = containerRef.current?.getBoundingClientRect().top;
     const stickyTop = stickyRef.current?.getBoundingClientRect().top;
 
-    if (timelineHeight && containerHeight && containerTop && stickyTop) {
+    if (
+      timelineHeight &&
+      containerHeight != null &&
+      containerTop &&
+      stickyTop
+    ) {
       const newIndex = Math.floor(
         ((timelineHeight.bottom - timelineHeight.height - containerHeight) /
           timelineHeight.height) *
@@ -32,6 +37,13 @@ const Roadmap = () => {
     } else {
       // Handle the case where timelineHeight is null
       console.warn("timelineHeight is null");
+      console.log("Mobile Debug:", {
+        scrollTop,
+        timelineHeight,
+        containerHeight,
+        containerTop,
+        stickyTop,
+      });
     }
   };
 
