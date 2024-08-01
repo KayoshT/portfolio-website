@@ -42,10 +42,10 @@ const Hero = () => {
         </div>
         <div className="sm:self-end">
           <h1 className="text-midnightgreen lg:text-9xl md:text-8xl sm:text-7xl text-6xl font-bold">
-            G'day,
+            G&apos;day,
           </h1>
           <h1 className="text-midnightgreen lg:text-9xl md:text-8xl sm:text-7xl  text-6xl font-bold">
-            I'm Kayosh.
+            I&apos;m Kayosh.
           </h1>
         </div>
       </div>
