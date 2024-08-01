@@ -34,7 +34,7 @@ const Home = () => {
         <Head>
           <title>My Portfolio</title>
           <meta name="description" content="My professional portfolio" />
-          <link rel="icon" href="/favicon.ico" />
+          <link rel="icon" href="/kinder.ico" />
         </Head>
         <Particles
           id="tsparticles"
