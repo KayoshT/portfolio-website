@@ -76,7 +76,7 @@ const Roadmap = () => {
           <div className="sticky top-1/3 self-start" ref={containerRef}></div>
         )}
         <div
-          className="absolute top-0 lg:left-1/2 w-2 bg-blue-500 z-20 ml-2"
+          className="absolute top-0 lg:left-1/2 w-2 bg-blue-500 z-20 ml-2 transition-all ease-in duration-200"
           style={{ height: `${lineHeight}px` }}
           ref={stickyRef}
         ></div>
