@@ -33,12 +33,12 @@ const EscoComponent = () => {
             </div>
           </div>
         </div>
-        <div className="h-full flex-[2_1_0%] p-2 flex flex-col gap-1 border-gray-200">
+        <div className="h-full flex-[2_1_0%] p-2 flex flex-col max-md:gap[0.15rem] gap-1 border-gray-200">
           <div className="border border-gray-200 rounded-lg h-5"></div>
           <div className=" flex flex-col gap-3 border border-gray-200 rounded-lg h-full">
             <h1 className="text-left font-semibold pl-2">Cart</h1>
-            <img className="p-2" src="./empty-cart.svg" />
-            <div className="bg-blue-700 h-6 rounded-lg m-2 text-sm text-white font-semibold text-center">
+            <img className="p-2 max-sm:h-16" src="./empty-cart.svg" />
+            <div className="bg-blue-700 h-6 rounded-lg m-2 text-sm max-sm:text-xs text-white font-semibold text-center">
               Checkout
             </div>
           </div>

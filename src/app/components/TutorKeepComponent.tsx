@@ -17,7 +17,7 @@ const TutorKeepComponent = () => {
           <div className="w-full h-4 rounded-md bg-gray-200"></div>
           <div className="w-full h-4 rounded-md bg-gray-200"></div>
         </div>
-        <div className="h-full flex-[4_1_0%] p-6">
+        <div className="h-full flex-[4_1_0%] max-md:p-2 p-6">
           <div className="flex flex-col gap-2 h-full">
             <div className="border border-gray-200 rounded-lg h-full flex flex-col gap-1 p-2">
               <div>
@@ -29,22 +29,22 @@ const TutorKeepComponent = () => {
                 </h3>
               </div>
               <div className="relative">
-                <div className="absolute inset-x-0 top-1 w-full h-4 rounded-md bg-pink-500"></div>
-                <div className="relative w-full h-4 rounded-md bg-pink-400"></div>
+                <div className="absolute inset-x-0 top-1 w-full max-md:h-2 h-4 rounded-md bg-pink-500"></div>
+                <div className="relative w-full max-md:h-2 h-4 rounded-md bg-pink-400"></div>
               </div>
-              <div className="relative mt-2">
-                <div className="absolute inset-x-0 top-1 w-full h-4 rounded-md bg-blue-700"></div>
-                <div className="relative w-full h-4 rounded-md bg-blue-600"></div>
+              <div className="relative max-md:mt-1 mt-2">
+                <div className="absolute inset-x-0 top-1 w-full max-md:h-2 h-4 rounded-md bg-blue-700"></div>
+                <div className="relative w-full max-md:h-2 h-4 rounded-md bg-blue-600"></div>
               </div>
-              <div className="relative mt-2">
-                <div className="absolute inset-x-0 top-1 w-full h-4 rounded-md bg-yellow-500"></div>
-                <div className="relative w-full h-4 rounded-md bg-yellow-400"></div>
+              <div className="relative max-md:mt-1 mt-2">
+                <div className="absolute inset-x-0 top-1 w-full max-md:h-2 h-4 rounded-md bg-yellow-500"></div>
+                <div className="relative w-full max-md:h-2 h-4 rounded-md bg-yellow-400"></div>
               </div>
             </div>
             <div className="border-2 border-blue-400 rounded-lg h-5"></div>
           </div>
         </div>
-        <div className="h-full flex-[2_1_0%] p-2 flex flex-col justify-around gap-1">
+        <div className="h-full flex-[2_1_0%] p-2 flex flex-col justify-around max-md:gap[2px] gap-1">
           <div className="border border-gray-200 rounded-md h-5 w-1/2"></div>
           <div className=" flex flex-col gap-1 border border-gray-200 rounded-lg p-1 h-1/2">
             <div className="w-full h-5 bg-gray-200"></div>
@@ -53,7 +53,7 @@ const TutorKeepComponent = () => {
             <div className="w-full h-5 bg-gray-200"></div>
             <div className="w-full h-5 bg-gray-200"></div>
           </div>
-          <img src="./wizard.svg" className="h-24" />
+          <img src="./wizard.svg" className="max-md:h-16 max-sm:h-12 h-24" />
         </div>
       </div>
     </div>

@@ -76,17 +76,29 @@ const Roadmap = () => {
           <div className="sticky top-1/3 self-start" ref={containerRef}></div>
         )}
         <div
-          className="absolute top-0 lg:left-1/2 w-2 bg-blue-500 z-20 ml-2 transition-all ease-in duration-200"
+          className="absolute top-0 lg:left-1/2 w-2 bg-blue-500 z-20 ml-2 transition-all ease-out duration-200 rounded-t-lg"
           style={{ height: `${lineHeight}px` }}
           ref={stickyRef}
         ></div>
         <div
-          className="absolute top-0 lg:left-1/2 w-2 bg-gray-200 z-10 ml-2"
+          className="absolute top-0 lg:left-1/2 w-2 bg-gray-200 z-10 ml-2 rounded-t-lg"
           style={{ height: `${timelineHeight}px` }}
         ></div>
         <div className="flex-1">
           {roadmapData.map((item, index) => (
             <>
+              <div key={index} className="p-4 mx-8 mb-20">
+                <h3 className="mt-4 mb-2 font-bold text-2xl text-midnightgreen">
+                  {item.title}
+                </h3>
+                <p className="text-gray-600">{item.description}</p>
+                <a
+                  href={item.link}
+                  className="text-blue-500 hover:underline mt-2 inline-block"
+                >
+                  Learn more
+                </a>
+              </div>
               {screenSize.width < 1024 ? (
                 <div className="mx-8 p-4">
                   {item?.component ? (
@@ -102,18 +114,6 @@ const Roadmap = () => {
               ) : (
                 console.log("testing")
               )}
-              <div key={index} className="p-4 mx-8 mb-20">
-                <h3 className="mt-4 mb-2 font-bold text-2xl text-midnightgreen">
-                  {item.title}
-                </h3>
-                <p className="text-gray-600">{item.description}</p>
-                <a
-                  href={item.link}
-                  className="text-blue-500 hover:underline mt-2 inline-block"
-                >
-                  Learn more
-                </a>
-              </div>
             </>
           ))}
         </div>

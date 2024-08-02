@@ -50,7 +50,7 @@ const Hero = () => {
         </div>
       </div>
       <div className="flex justify-center items-center">
-        <div className="flex items-end max-lg:flex-col max-lg:justify-start justify-center mt-10 p-10">
+        <div className="flex  max-lg:items-start items-end max-lg:flex-col max-lg:justify-start justify-center mt-10 p-10">
           <div className="flex items-end">
             <h2 className="text-midnightgreen md:text-6xl sm:text-5xl text-4xl max-lg: text-center whitespace-nowrap">
               / Agile /
