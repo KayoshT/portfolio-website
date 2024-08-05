@@ -92,12 +92,14 @@ const Roadmap = () => {
                   {item.title}
                 </h3>
                 <p className="text-gray-600">{item.description}</p>
-                <a
-                  href={item.link}
-                  className="text-blue-500 hover:underline mt-2 inline-block"
-                >
-                  Learn more
-                </a>
+                {item.link != "" ? (
+                  <a
+                    href={item.link}
+                    className="text-blue-500 hover:underline mt-2 inline-block"
+                  >
+                    Visit Website
+                  </a>
+                ) : null}
               </div>
               {screenSize.width < 1024 ? (
                 <div className="mx-8 p-4">

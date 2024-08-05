@@ -1,6 +1,7 @@
 import EscoComponent from "../components/EscoComponent";
 import TutorKeepComponent from "../components/TutorKeepComponent";
 import YoutubeComponent from "../components/YoutubeComponent";
+import CryptoComponent from "../components/CryptoComponent";
 export const roadmapData = [
   {
     title: "EscoPos",
@@ -8,7 +9,7 @@ export const roadmapData = [
       "Streamlining business efficiency with a custom point-of-sale and invoicing app, saving 30+ hours monthly.",
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZzHDbVL49ogGcSz6il6oYJkaYXbQvVwr1tw&s",
-    link: "#",
+    link: "www.escopos.com",
     component: EscoComponent,
   },
   {
@@ -17,7 +18,7 @@ export const roadmapData = [
       "Empowering primary school students with an AI-driven math learning app for real-time, personalized support.",
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZzHDbVL49ogGcSz6il6oYJkaYXbQvVwr1tw&s",
-    link: "#",
+    link: "www.tutorkeep.com",
     component: TutorKeepComponent,
   },
   // {
@@ -34,7 +35,7 @@ export const roadmapData = [
       "Achieved 1M+ views by automating YouTube Shorts production using cutting-edge tech and creative scripting.",
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZzHDbVL49ogGcSz6il6oYJkaYXbQvVwr1tw&s",
-    link: "#",
+    link: "",
     component: YoutubeComponent,
   },
   {
@@ -43,6 +44,7 @@ export const roadmapData = [
       "Automated crypto trading to generate $2k-$5k monthly profits with an intelligent Discord bot.",
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZzHDbVL49ogGcSz6il6oYJkaYXbQvVwr1tw&s",
-    link: "#",
+    link: "",
+    component: CryptoComponent,
   },
 ];
