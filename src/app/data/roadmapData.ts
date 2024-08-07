@@ -9,7 +9,7 @@ export const roadmapData = [
       "Streamlining business efficiency with a custom point-of-sale and invoicing app, saving 30+ hours monthly.",
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZzHDbVL49ogGcSz6il6oYJkaYXbQvVwr1tw&s",
-    link: "www.escopos.com",
+    link: "https://www.escopos.com",
     component: EscoComponent,
   },
   {
@@ -18,7 +18,7 @@ export const roadmapData = [
       "Empowering primary school students with an AI-driven math learning app for real-time, personalized support.",
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZzHDbVL49ogGcSz6il6oYJkaYXbQvVwr1tw&s",
-    link: "www.tutorkeep.com",
+    link: "https://www.tutorkeep.com",
     component: TutorKeepComponent,
   },
   // {

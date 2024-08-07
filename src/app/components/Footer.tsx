@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
     <section>
-      <img src="./sand.svg" className="w-full" />
+      <img src="./sand.svg" className="mt-20 w-full" />
     </section>
   );
 };

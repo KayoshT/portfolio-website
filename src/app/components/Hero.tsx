@@ -14,6 +14,14 @@ const defaultOptions = {
     preserveAspectRatio: "xMidYMid slice",
   },
 };
+const arrowOptions = {
+  loop: true,
+  autoplay: true,
+  animationData: arrowData,
+  rendererSettings: {
+    preserveAspectRatio: "xMidYMid slice",
+  },
+};
 const wordsList = [
   "G'day",
   "Hello",
@@ -40,8 +48,10 @@ const Hero = () => {
   }, []);
   const screenSize = useScreenSize();
   const [dimension, setDimension] = useState(300);
+  const [arrowDimension, setArrowDimension] = useState(150);
   useEffect(() => {
     screenSize.width < 768 ? setDimension(200) : setDimension(300);
+    screenSize.width < 768 ? setArrowDimension(100) : setArrowDimension(150);
   }, [screenSize]);
   const variants = {
     enter: { y: "-100%" },
@@ -98,6 +108,13 @@ const Hero = () => {
             iterative, flexible, customer-focused development.
           </h4>
         </div>
+      </div>
+      <div className="mb-5">
+        <Lottie
+          options={arrowOptions}
+          height={arrowDimension}
+          width={arrowDimension}
+        />
       </div>
     </section>
   );

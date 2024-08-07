@@ -45,9 +45,9 @@ const Home = () => {
         <main className="relative z-10">
           <Nav />
           <Hero />
+          <About />
           <Roadmap />
           {/* <Projects /> */}
-          <About />
           <Footer />
         </main>
       </div>

@@ -1,8 +1,10 @@
 "use client";
 
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useMemo } from "react";
 import { roadmapData } from "../data/roadmapData";
 import useScreenSize from "../hooks/useScreenSize";
+import { motion } from "framer-motion";
+
 const Roadmap = () => {
   const [currItem, setCurrItem] = useState<Record<string, any>>({});
   const [lineHeight, setLineHeight] = useState<number>(0);
@@ -31,7 +33,17 @@ const Roadmap = () => {
           -roadmapData.length
       );
 
-      setCurrItem(roadmapData[Math.floor(newIndex < 0 ? 0 : newIndex)]);
+      setCurrItem(
+        roadmapData[
+          Math.floor(
+            newIndex < 0
+              ? 0
+              : newIndex >= roadmapData.length
+              ? roadmapData.length - 1
+              : newIndex
+          )
+        ]
+      );
       console.log(newIndex);
       setLineHeight(containerTop - stickyTop);
     } else {
@@ -53,71 +65,105 @@ const Roadmap = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-  const CurrentComponent = currItem?.component ? currItem.component : "div";
+  const CurrentComponent = useMemo(
+    () =>
+      currItem?.component
+        ? () => (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
+            >
+              {currItem.component()}
+            </motion.div>
+          )
+        : "div",
+    [currItem]
+  );
   const timelineHeight = timelineRef.current?.getBoundingClientRect().height;
   return (
-    <section className="relative flex justify-center items-center 2xl:mx-72 xl:mx-24 lg:mx-8">
-      <div className="flex container" ref={timelineRef}>
-        {screenSize.width >= 1024 ? (
-          <div className="sticky top-1/3 self-start flex-1" ref={containerRef}>
-            <div className="mx-8 p-4">
-              {CurrentComponent !== "div" ? (
-                <CurrentComponent />
-              ) : (
-                <img
-                  src={currItem?.image}
-                  alt={currItem?.title}
-                  className="w-full h-72 rounded-lg"
-                />
-              )}
-            </div>
-          </div>
-        ) : (
-          <div className="sticky top-1/3 self-start" ref={containerRef}></div>
-        )}
-        <div
-          className="absolute top-0 lg:left-1/2 w-2 bg-blue-500 z-20 ml-2 transition-all ease-out duration-200 rounded-t-lg"
-          style={{ height: `${lineHeight}px` }}
-          ref={stickyRef}
-        ></div>
-        <div
-          className="absolute top-0 lg:left-1/2 w-2 bg-gray-200 z-10 ml-2 rounded-t-lg"
-          style={{ height: `${timelineHeight}px` }}
-        ></div>
-        <div className="flex-1">
-          {roadmapData.map((item, index) => (
-            <>
-              <div key={index} className="p-4 mx-8 mb-20">
-                <h3 className="mt-4 mb-2 font-bold text-2xl text-midnightgreen">
-                  {item.title}
-                </h3>
-                <p className="text-gray-600">{item.description}</p>
-                {item.link != "" ? (
-                  <a
-                    href={item.link}
-                    className="text-blue-500 hover:underline mt-2 inline-block"
-                  >
-                    Visit Website
-                  </a>
-                ) : null}
+    <section className="2xl:mx-72 xl:mx-24 lg:mx-8">
+      <div className="flex flex-col justify-center items-center ">
+        <div className="mb-10 w-1/2">
+          <h1 className="text-midnightgreen text-6xl font-bold text-center">
+            My Latest Work
+          </h1>
+          <img
+            src="./seablue-underline.svg"
+            className="w-2/3 max-lg:w-full m-auto"
+          />
+        </div>
+      </div>
+      <div className="relative flex flex-col justify-center items-center ">
+        <div className="flex container" ref={timelineRef}>
+          {screenSize.width >= 1024 ? (
+            <div
+              className="sticky top-1/3 self-start flex-1"
+              ref={containerRef}
+            >
+              <div className="mx-8 p-4">
+                {CurrentComponent !== "div" ? (
+                  <CurrentComponent />
+                ) : (
+                  <img
+                    src={currItem?.image}
+                    alt={currItem?.title}
+                    className="w-full h-72 rounded-lg"
+                  />
+                )}
               </div>
-              {screenSize.width < 1024 ? (
-                <div className="mx-8 p-4">
-                  {item?.component ? (
-                    <item.component />
-                  ) : (
-                    <img
-                      src={currItem?.image}
-                      alt={currItem?.title}
-                      className="w-full h-72 rounded-lg"
-                    />
-                  )}
+            </div>
+          ) : (
+            <div className="sticky top-1/3 self-start" ref={containerRef}></div>
+          )}
+          <div className="max-sm:ml-4">
+            <div
+              className="absolute top-0 lg:left-1/2 w-2 bg-seablue z-20 transition-all ease-out duration-200 rounded-t-lg"
+              style={{ height: `${lineHeight}px` }}
+              ref={stickyRef}
+            ></div>
+            <div
+              className="absolute top-0 lg:left-1/2 w-2 bg-gray-200 z-10 rounded-t-lg"
+              style={{ height: `${timelineHeight}px` }}
+            ></div>
+          </div>
+          <div className="flex-1 ">
+            {roadmapData.map((item, index) => (
+              <>
+                <div key={index} className="p-4 mx-8 mb-20 max-lg:mb-5">
+                  <h3 className="mt-4 mb-2 font-bold text-2xl text-midnightgreen">
+                    {item.title}
+                  </h3>
+                  <p className="text-gray-600">{item.description}</p>
+                  {item.link != "" ? (
+                    <a
+                      href={item.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-seablue hover:underline mt-2 inline-block"
+                    >
+                      Visit Website
+                    </a>
+                  ) : null}
                 </div>
-              ) : (
-                console.log("testing")
-              )}
-            </>
-          ))}
+                {screenSize.width < 1024 ? (
+                  <div className="mx-8 p-4">
+                    {item?.component ? (
+                      <item.component />
+                    ) : (
+                      <img
+                        src={currItem?.image}
+                        alt={currItem?.title}
+                        className="w-full h-72 rounded-lg"
+                      />
+                    )}
+                  </div>
+                ) : (
+                  console.log("testing")
+                )}
+              </>
+            ))}
+          </div>
         </div>
       </div>
     </section>
