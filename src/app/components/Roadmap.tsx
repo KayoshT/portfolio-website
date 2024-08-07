@@ -12,7 +12,6 @@ const Roadmap = () => {
   const stickyRef = useRef<HTMLDivElement>(null);
   const timelineRef = useRef<HTMLDivElement>(null);
   const screenSize = useScreenSize();
-  console.log(screenSize);
   const handleScroll = () => {
     const scrollTop = window.scrollY || document.documentElement.scrollTop;
     const timelineHeight = timelineRef.current?.getBoundingClientRect();
@@ -44,8 +43,8 @@ const Roadmap = () => {
           )
         ]
       );
-      console.log(newIndex);
       setLineHeight(containerTop - stickyTop);
+      console.log(stickyTop, containerTop, containerTop - stickyTop);
     } else {
       // Handle the case where timelineHeight is null
       console.warn("timelineHeight is null");
@@ -82,15 +81,15 @@ const Roadmap = () => {
   );
   const timelineHeight = timelineRef.current?.getBoundingClientRect().height;
   return (
-    <section className="2xl:mx-72 xl:mx-24 lg:mx-8">
+    <section id="roadmap" className="2xl:mx-72 xl:mx-24 lg:mx-8">
       <div className="flex flex-col justify-center items-center ">
-        <div className="mb-10 w-1/2">
-          <h1 className="text-midnightgreen text-6xl font-bold text-center">
+        <div className="mb-10 w-fit">
+          <h1 className="text-midnightgreen text-6xl max-md:text-4xl font-bold text-center">
             My Latest Work
           </h1>
           <img
             src="./seablue-underline.svg"
-            className="w-2/3 max-lg:w-full m-auto"
+            className="w-full max-lg:w-full m-auto"
           />
         </div>
       </div>
@@ -158,9 +157,7 @@ const Roadmap = () => {
                       />
                     )}
                   </div>
-                ) : (
-                  console.log("testing")
-                )}
+                ) : null}
               </>
             ))}
           </div>

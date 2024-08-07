@@ -27,7 +27,7 @@ const About = () => {
   }, [screenSize]);
   return (
     <section
-      id="hero"
+      id="about"
       className="mb-36 mx-48 max-lg:mx-36 max-md:mx-12 max-sm:mx-2"
     >
       <div className="relative flex items-center justify-center">
@@ -38,14 +38,17 @@ const About = () => {
             width={dimension}
           />
         </div>
-        <div className="absolute text-center w-1/3 max-lg:w-1/2">
-          <span className="text-white text-3xl max-md:text-xl max-sm:text-lgfont-light text-center z-10">
+        <div
+          className="absolute text-center w-1/3 max-lg:w-1/2"
+          style={{ maxWidth: dimension - 100 }}
+        >
+          <span className="text-white text-3xl max-md:text-xl max-sm:text-lg font-light text-center z-10">
             <i>
               That’s <b>my approach</b> in a nutshell.
             </i>
           </span>
           <br />
-          <span className="text-white text-3xl max-md:text-xl max-sm:text-lgfont-light text-center z-10">
+          <span className="text-white text-3xl max-md:text-xl max-sm:text-lg font-light text-center z-10">
             <i>
               Staying agile keeps me ahead, ensuring I deliver solutions that
               matter.

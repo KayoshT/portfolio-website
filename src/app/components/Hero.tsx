@@ -58,6 +58,13 @@ const Hero = () => {
     center: { y: 0, opacity: 1 },
     exit: { y: "100%" },
   };
+  const handleScrollToAbout = () => {
+    const aboutSection = document.getElementById("about");
+    if (aboutSection) {
+      aboutSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section
       id="hero"
@@ -109,11 +116,12 @@ const Hero = () => {
           </h4>
         </div>
       </div>
-      <div className="mb-5">
+      <div className="mb-5" onClick={handleScrollToAbout}>
         <Lottie
           options={arrowOptions}
           height={arrowDimension}
           width={arrowDimension}
+          isClickToPauseDisabled={true}
         />
       </div>
     </section>
